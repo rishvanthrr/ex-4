@@ -2,25 +2,23 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
-                git 'https://github.com/rishvanthrr/ex-4.git'
+                checkout scm
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building the application'
-                sh 'mkdir -p target'
-                sh 'echo "Hello CI Pipeline" > target/app.jar'
+                echo "Building the application"
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests'
+                echo "Running unit tests"
             }
         }
     }
 }
+
